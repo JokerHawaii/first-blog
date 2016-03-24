@@ -43,7 +43,7 @@ def post_detail(request, slug=None): # Retrieve
 
 def post_list(request): # list post items
 	today = timezone.now().date()
-	queryset_list = Post.objects.active()#.order_by("-timestamp")
+	queryset_list = Post.objects.active() #.order_by("-timestamp")
 	if request.user.is_staff or request.user.is_superuser:
 		queryset_list = Post.objects.all()
 	
@@ -51,12 +51,13 @@ def post_list(request): # list post items
 	if query:
 		queryset_list = queryset_list.filter(
 				Q(title__icontains=query)|
+				Q(content__icontains=query)|
 				Q(user__first_name__icontains=query) |
 				Q(user__last_name__icontains=query)
 				).distinct()
-	paginator = Paginator(queryset_list, 5) # Show 25 contacts per page
+	paginator = Paginator(queryset_list, 2) # Show 25 contacts per page
 	page_request_var = "page"
-	page = request.GET.get('page_request_var')
+	page = request.GET.get(page_request_var)
 	try:
 		queryset = paginator.page(page)
 	except PageNotAnInteger:
@@ -65,12 +66,14 @@ def post_list(request): # list post items
 	except EmptyPage:
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		queryset = paginator.page(paginator.num_pages)
+
+
 	context = {
-		"object_list": queryset,
+		"object_list": queryset, 
 		"page_request_var": page_request_var,
 		"today": today,
 	}
-	return render(request, 'post_list.html', context)
+	return render(request, "post_list.html", context)
 
 
 def post_update(request, slug=None):

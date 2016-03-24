@@ -57,7 +57,7 @@ class Post(models.Model):
         return reverse("posts:detail", kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ["-timestamp", "-updated"]
+        ordering = ["-publish", "-updated"]
 
 
 def create_slug(instance, new_slug=None):
