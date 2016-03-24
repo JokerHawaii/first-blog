@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <title>{% block head_title %}Welcome to Joanna's Blog!{% endblock head_title %}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -15,7 +17,45 @@
 {% block style %}{% endblock style %}
 </style>
 </head>
+
 <body>
+<header id="branding">
+<div class="container headercontainer">
+	<div id="sitetitle">
+		<hgroup>
+		<h1 id="sitetitle"><a href="http://joannaxu.pythonanywhere.com/posts/" title="joker's blog" rel="home">Joker's Techblog</a></h1>
+		</hgroup>
+	</div>
+</div>
+<div class="container headercontainer">
+	<ul class="nav navbar-nav">
+		<li><a href="http://joannaxu.pythonanywhere.com/posts/">Home</a></li>
+		<li><a href="http://127.0.0.1:8000/posts/archives/">Archives</a></li>
+		<li><a href="http://joannaxu.pythonanywhere.com/about/">About</a></li>
+	</ul>
+</div>
+<div id="main-image"></div>
+</header>
+
+<div id="mainbody" class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<form method='GET' action=''>
+			<input type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
+			<input type='submit' value='Search' />
+			</form>
+			<h3 class="sidebar"><strong>Recent Posts</strong></h3>
+		</div>
+		<div class="col-md-9">
+			{% block content %}{% endblock %}
+		</div>
+
+	</div>
+</div>
+
+
+
+
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -27,15 +67,22 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 {% include "messages_display.html" %}
-<div class='container'>
-	{% block content %}{% endblock %}
-</div>
+
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 
+
+
 </body>
+
+
+
+
+
+
+
 </html>
 
 
