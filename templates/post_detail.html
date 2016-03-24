@@ -16,7 +16,7 @@
 			{% if instance.image %}
 			<img src="{{ instance.image.url }}" class="img-responsive" />
 			{% endif %}
-			<p>{{ instance.content|linebreaks }}</p>
+			<div class="content-markdown">{{ instance.content }}</div>
 		</div>
 		
 		

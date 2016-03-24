@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
+
+{% block head-extra %}
+{{ form.media }}
+{% endblock head-extra %}
+
+
 {% block content %}
-<div class='col-sm-6 col-sm-offset-3'>
+<div class='col-md-12'>
 <h1>Form</h1>
 
 <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}

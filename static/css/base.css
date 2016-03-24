@@ -168,3 +168,22 @@ header {
 	border-bottom: none;
 	font-size: 1.5em;
 }
+
+.footercontainer {
+	background-color: transparent;
+	padding-left: 150px;
+	padding-right: 25px;
+}
+
+.container, .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container, .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.myfooter {
+	padding-top: 20px;
+}

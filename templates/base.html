@@ -14,8 +14,10 @@
 
 <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
 <style>
+
 {% block style %}{% endblock style %}
 </style>
+{% block head-extra %} {% endblock head-extra %}
 </head>
 
 <body>
@@ -53,7 +55,13 @@
 	</div>
 </div>
 
-
+<footer class="myfooter">
+	<div class="container footercontainer">
+		<div class="col-md-12">
+			<p class="copyright">Copyright @ JOANNA'S TECHBLOG 2016.</p>
+		</div>
+	</div>
+</footer>
 
 
 
@@ -70,8 +78,25 @@
 
 
 <!-- Latest compiled and minified JavaScript -->
+
+<script   src="http://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".content-markdown").each(function(){
+            var content = $(this).text()
+            console.log(content)
+            var markedContent = marked(content)
+            console.log(markedContent)
+            $(this).html(markedContent)
+    })
+})
+</script>
 
 
 
