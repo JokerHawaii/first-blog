@@ -1,0 +1,170 @@
+
+body {
+	font-family: 'Serif', 'Lobster';
+	background-image: url('http://static.tumblr.com/jw8fmba/CPelyxp1n/white_wood.jpg');
+	background-repeat: repeat; 
+	background-position: top left; 
+	background-attachment: scroll;
+	padding-right: 100px;
+	padding-left: 50px;
+	background-color: transparent;
+}
+
+header {
+	padding-left: 70px;
+	display: block;
+}
+
+
+#main-image {
+	border-top: 1px solid #FFFFFF;
+	clear: both;
+	max-width: 960px;
+	padding-bottom: 20px;
+}
+
+.sidebar h1,
+.sidebar h2 {
+	color: black;
+	font-family: 'Serif';
+}
+
+
+.container #mainbody {
+	background-color: transparent;
+}
+
+.clear {
+	clear: both;
+	display: block;
+}
+.clear-fix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+
+#branding {
+	padding: 50px 70px;
+}
+
+
+#sitetitle {
+	clear: both;
+	float: left;
+	font-style: italic;
+	margin: -9px 0px 0px 0px;
+	width: 76%;
+	padding: 15px 0 10px;
+	font-family: 'Lobster';
+	display: inline;
+	font-size: 2em;
+}
+
+#sitetile h1{
+	color: #000;
+}
+
+#sitetitle a{
+	color: #000;
+}
+
+#sitetitle a:hover{
+	color: #990000;
+}
+
+
+.nav {
+	display: block;
+}
+
+.navbar-nav {
+    margin: 7.5px -15px;
+}
+
+.navbar-nav li {
+	float: left;
+	margin-right: 10px;
+	position: relative;
+	text-transform: uppercase;
+}
+.navbar-nav a:hover {
+	color: #000;
+}
+
+.navbar-nav > ul > li {
+	margin-bottom: 15px;
+}
+.navbar-nav a {
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #fff;
+	color: #999;
+	display: block;
+	font-size: 1.3em;
+	padding: 3px 10px 5px;
+}
+
+.navbar-nav ul ul {
+	display: none;
+	float: left;
+	margin: 0;
+	position: absolute;
+	top: 22px;
+	left: 0;
+	width: 140px;
+	z-index: 99999;
+}
+.navbar-nav ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.navbar-nav ul li:hover > ul {
+	display: block;
+}
+.navbar-nav li li {
+	float: none;
+	margin-right: 0;
+}
+
+
+.post-title {
+	padding: 0 0 20px;
+	position: relative;
+}
+/* The name of the post */
+.post-title h1 {
+	border-bottom: 1px solid #ddd;
+	color: #990000;
+	font-size: 3em;
+	font-style: italic;
+	font-weight: normal;
+	min-height: 1em;
+	padding: 6px 0 16px 0;
+	font-family: "Adobe Garamond Pro", Garamond, Palatino, "Palatino Linotype", Times, "Times New Roman", Georgia, serif;
+}
+.post-title h1 a {
+	color: #990000;
+}
+.post-title h1 a:hover {
+	text-decoration: underline;
+}
+
+.post-content {
+	color: #333;
+	float: none;
+	font-size: 16px;
+	padding: 15px 2.8% 0 0;
+	width: 72.8%;
+}
+.post-content p {
+	line-height: 180%;
+	margin-bottom: 23px;
+}
+
+.archive h1 {
+	border-bottom: none;
+	font-size: 1.5em;
+}
