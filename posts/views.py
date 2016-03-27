@@ -132,3 +132,6 @@ def post_archive(request):
 		"today": today,
 	}
 	return render(request, 'post_archive.html', context)
+
+def post_about(request):
+	return render(request, 'post_about.html', {})
