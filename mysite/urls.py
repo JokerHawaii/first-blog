@@ -18,11 +18,9 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
-from posts.views import post_about
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^about/$', post_about),
     url(r'^posts/', include("posts.urls", namespace='posts')),
 ]
 
