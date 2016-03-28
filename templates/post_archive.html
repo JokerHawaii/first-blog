@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load blog_tags %}
 
 
 
 {% block content %}
 <div class="col-md-3">
-    <form method='GET' action='' class="row">
+  <form method='GET' action='' class="row">
     <div class="col-md-10" >
         <div class="input-group">
         <input class="form-control" type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
@@ -15,7 +16,8 @@
         </div>
     </div>
     </form>
-    <h3 class="sidebar"><strong>Recent Posts</strong></h3>
+    <h3 class="sidebar"><strong>Latest Posts</strong></h3>
+    {% show_latest_posts 5 %}
 </div>
         
 <div class="col-md-9">
