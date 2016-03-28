@@ -11,6 +11,8 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
+
 
 <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
 <style>
@@ -41,16 +43,9 @@
 
 <div id="mainbody" class="container">
 	<div class="row">
-		<div class="col-md-3">
-			<form method='GET' action=''>
-			<input type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
-			<input type='submit' value='Search' />
-			</form>
-			<h3 class="sidebar"><strong>Recent Posts</strong></h3>
-		</div>
-		<div class="col-md-9">
+		
 			{% block content %}{% endblock %}
-		</div>
+
 
 	</div>
 </div>
@@ -95,8 +90,36 @@ $(document).ready(function(){
             console.log(markedContent)
             $(this).html(markedContent)
     })
-    // $(".content-markdown img").each(function(){
-    //         $(this).addClass("img-responsive")
+    $(".post-detail-item img").each(function(){
+            $(this).addClass("img-responsive")
+    })
+
+    var titleInput = $("#id_title")
+    function setTitle(value){
+    	$("#preview-title").text(value)
+    }
+    setTitle(titleInput.val())
+    titleInput.keyup(function(){
+        var newTitle = $(this).val()
+        setTitle(newTitle)
+    })
+
+
+    var contentInput = $("#id_content")
+    function setContent(value){
+    	var markedContent = marked(value)
+    	$("#preview-content").html(markedContent)
+    	$("#preview-content img").each(function(){
+    		$(this).addClass("img-responsive")
+    	})
+    }
+    setContent(contentInput.val())
+
+    contentInput.keyup(function(){
+        var newContent = $(this).val()
+        setContent(newContent)
+    })
+
 })
 </script>
 

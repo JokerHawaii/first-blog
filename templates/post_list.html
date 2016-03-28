@@ -1,16 +1,31 @@
 {% extends "base.html" %}
 
+
+
+
 {% block content %}
 
-
-
-
-<div class="col-md-12">
+<div class="col-md-3">
+    <form method='GET' action='' class="row">
+    <div class="col-md-10" >
+        <div class="input-group">
+        <input class="form-control" type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
+        <span class="input-group-btn">
+        <!-- <input class="btn btn-default" type='submit' value='Search' /> -->
+        <button class="btn btn-default" value="submit"><i class="fa fa-search"></i></button>
+        </span>
+        </div>
+    </div>
+    </form>
+    <h3 class="sidebar"><strong>Recent Posts</strong></h3>
+</div>
+        
+<div class="col-md-9">
 {% for obj in object_list %}
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-11">
     <div class="thumbnail">
-    <div class="caption">
+    
       <!-- <img src="..." alt="..."> -->
       <header class="post-title">
       {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
@@ -23,7 +38,8 @@
         {% if obj.image %}
         <img src="{{ obj.image.url }}" class="img-responsive" />
         {% endif %}
-        <div class="content-markdown">{{ obj.content|truncatechars:500 }}</div>
+        <div class="caption post-detail-item">
+        {{ obj.get_markdown|truncatewords_html:50 }}
         <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">Read More</a></p>
       </div>
     </div>
@@ -53,7 +69,7 @@
 
 
 
-</div>
+</div>   
 
 
 

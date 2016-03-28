@@ -6,7 +6,7 @@ body {
 	background-position: top left; 
 	background-attachment: scroll;
 	padding-right: 100px;
-	padding-left: 50px;
+	padding-left: 70px;
 	background-color: transparent;
 }
 
@@ -186,4 +186,9 @@ header {
 
 .myfooter {
 	padding-top: 20px;
+}
+
+.wmd-panel{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
 }
