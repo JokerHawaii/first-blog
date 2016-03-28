@@ -10,7 +10,6 @@ from django.utils import timezone
 from markdown_deux import markdown
 # Create your models here.
 
-
 class PostManager(models.Manager):
     def active(self, *args, **kwargs):
         # Post.objects.all() = super(PostManager, self).all()
@@ -66,6 +65,7 @@ class Post(models.Model):
 
     class Meta:
         ordering = ["-publish", "-updated"]
+
 
 
 def create_slug(instance, new_slug=None):
