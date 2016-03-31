@@ -16,3 +16,9 @@ class PostForm(forms.ModelForm):
 			"draft",
 			"publish",
 		]
+
+class EmailPostForm(forms.Form):
+	your_name = forms.CharField(max_length=25)
+	your_email = forms.EmailField()
+	send_to = forms.EmailField()
+	comments = forms.CharField(required=False, widget=forms.Textarea)

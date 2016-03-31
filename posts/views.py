@@ -2,11 +2,12 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 
+from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from urllib.parse import quote_plus
 from django.db.models import Q
-from .forms import PostForm
+from .forms import PostForm, EmailPostForm
 from .models import Post
 # Create your views here.
 
@@ -137,4 +138,35 @@ def post_about(request):
 	return render(request, 'post_about.html', {})
 
 
-	
+def post_share(request, slug=None):
+	# Retrieve post by id
+	post = get_object_or_404(Post, slug=slug)
+	sent = False
+	if request.method == 'POST':
+		# Form was submitted
+		form = EmailPostForm(request.POST)
+		if form.is_valid():
+			# Form fields passed validation
+			cd = form.cleaned_data
+			# ... send email
+			post_url = request.build_absolute_uri(post.get_absolute_url())
+			subject = '{} ({}) recommends you reading "{}"'.format(cd['your_name'], cd['your_email'], post.title)
+			message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['your_name'], cd['comments'])
+			send_mail(subject, message, 'admin@myblog.com',[cd['send_to']])
+			sent = True
+	else:
+		form = EmailPostForm()
+	if sent:
+		context = {
+			'post': post,
+			'form': form,
+			'sent': sent,
+			'cd': cd,
+		} 
+	else:
+		context = {
+			'post': post,
+			'form': form,
+			'sent': sent,
+		} 
+	return render(request, 'post_share.html', context)
