@@ -2,7 +2,7 @@ from django import forms
 
 from pagedown.widgets import PagedownWidget
 
-from .models import Post
+from .models import Post, Comment
 
 class PostForm(forms.ModelForm):
 	content = forms.CharField(widget=PagedownWidget(show_preview=False))
@@ -22,3 +22,9 @@ class EmailPostForm(forms.Form):
 	your_email = forms.EmailField()
 	send_to = forms.EmailField()
 	comments = forms.CharField(required=False, widget=forms.Textarea)
+
+
+class CommentForm(forms.ModelForm):
+	class Meta:
+		model = Comment
+		fields = ('name', 'email', 'body')

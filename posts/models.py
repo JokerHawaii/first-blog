@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
+from taggit.managers import TaggableManager
 from django.utils.text import slugify
 from django.utils.safestring import mark_safe
 from django.utils import timezone
@@ -47,7 +48,7 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     objects = PostManager()
-
+    tags = TaggableManager()
 
     def __unicode__(self):
         return self.title
@@ -87,3 +88,19 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+    
+    class Meta:
+        ordering = ('created',)
+    
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
+

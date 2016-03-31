@@ -21,4 +21,5 @@ urlpatterns = [
 	url(r'^(?P<slug>[\w-]+)/edit/$', post_update, name="update"),
 	url(r'^(?P<slug>[\w-]+)/delete/$', post_delete),
 	url(r'^(?P<slug>[\w-]+)/share/$', post_share, name='share'),
+	url(r'^tag/(?P<tag_slug>[\w-]+)/$', post_list, name='post_list_by_tag'),
 ]

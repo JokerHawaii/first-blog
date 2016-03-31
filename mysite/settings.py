@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'markdown_deux',
     'pagedown',
+    'taggit',
     # Local apps
     'comments',
     'posts',
