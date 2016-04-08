@@ -17,6 +17,6 @@
 <div>
    <h3 class="sidebar"><strong>Tags</strong></h3> 
    {% for t in tags %}
-   <a href="{% url "posts:post_list_by_tag" t.slug %}">{{ t.name }}</a>
+   <a href="{% url "posts:post_list_by_tag" t.slug %}" style="padding-left: 10px">{{ t.name}}</a>
    {% endfor %}
 </div>
