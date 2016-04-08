@@ -63,6 +63,7 @@ def post_detail(request, slug=None): # Retrieve
 		'comments': comments,
 		'comment_form': comment_form,
 		'similar_posts': similar_posts,
+		'tags': Tag.objects.all(),
 	}
 	return render(request, 'post_detail.html', context)
 
@@ -95,12 +96,13 @@ def post_list(request, tag_slug=None): # list post items
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		queryset = paginator.page(paginator.num_pages)
 
-
+	all_tags = Tag.objects.all()
 	context = {
 		"object_list": queryset, 
 		"page_request_var": page_request_var,
 		"today": today,
-		'tag': tag
+		'tag': tag,
+		'tags':all_tags
 	}
 	return render(request, "post_list.html", context)
 
@@ -159,6 +161,7 @@ def post_archive(request):
 		"object_list": queryset,
 		"page_request_var": page_request_var,
 		"today": today,
+		'tags': Tag.objects.all(),
 	}
 	return render(request, 'post_archive.html', context)
 

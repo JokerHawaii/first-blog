@@ -1,24 +1,13 @@
 {% extends "base.html" %}
 {% load blog_tags %}
 
-{% block head_title %}Welcome to Joanna's Blog!{% endblock head_title %}
+{% block head_title %}Welcome to My Blog!{% endblock head_title %}
 
 {% block content %}
 
 <div class="col-md-3">
-    <form method='GET' action='' class="row">
-    <div class="col-md-10" >
-        <div class="input-group">
-        <input class="form-control" type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
-        <span class="input-group-btn">
-        <!-- <input class="btn btn-default" type='submit' value='Search' /> -->
-        <button class="btn btn-default" value="submit"><i class="fa fa-search"></i></button>
-        </span>
-        </div>
-    </div>
-    </form>
-    <h3 class="sidebar"><strong>Latest Posts</strong></h3>
-    {% show_latest_posts 5 %}
+{% include "sidebar.html" %}
+
 
 </div>
         

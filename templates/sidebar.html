@@ -1,0 +1,22 @@
+{% load blog_tags %}
+<form method='GET' action='' class="row">
+    <div class="col-md-10" >
+        <div class="input-group">
+        <input class="form-control" type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
+        <span class="input-group-btn">
+        <!-- <input class="btn btn-default" type='submit' value='Search' /> -->
+        <button class="btn btn-default" value="submit"><i class="fa fa-search"></i></button>
+        </span>
+        </div>
+    </div>
+</form>
+<div>
+    <h3 class="sidebar"><strong>Latest Posts</strong></h3>
+    {% show_latest_posts 5 %}
+</div>
+<div>
+   <h3 class="sidebar"><strong>Tags</strong></h3> 
+   {% for t in tags %}
+   <a href="{% url "posts:post_list_by_tag" t.slug %}">{{ t.name }}</a>
+   {% endfor %}
+</div>
