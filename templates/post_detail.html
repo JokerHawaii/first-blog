@@ -9,7 +9,7 @@
 
 
 {% block content %}
-{<div class="col-md-3">
+<div class="col-md-3">
     {% include "sidebar.html" %}
 </div>
         
@@ -17,7 +17,13 @@
 <div class="row">
 	<div class="col-sm-11">
 		<header class="post-title">
-		<h1>{{ title }} <small>{{ instance.publish }}</small></h1>
+		<h1>
+			{{ title }}
+			<small>{{ instance.publish }}</small> 
+			{% if user.is_authenticated %}
+			<small><small><a class="icon" href="{% url 'posts:update' slug=title|lower %}"><i class="fa fa-pencil-square-o" title="Edit"></i></a></small></small>
+			{% endif %}
+		</h1>
 		<p>{% if instance.user.get_full_name %}Author: {{ instance.user.get_full_name }}{% endif %}
 		<div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div></p>
 		<p class="tags">Tags: {{ instance.tags.all|join:", " }}</p>

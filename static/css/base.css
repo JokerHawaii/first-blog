@@ -5,8 +5,8 @@ body {
 	background-repeat: repeat; 
 	background-position: top left; 
 	background-attachment: scroll;
-	padding-right: 100px;
-	padding-left: 70px;
+	padding-right: 0px;
+	padding-left: 0px;
 	background-color: transparent;
 }
 
@@ -17,9 +17,9 @@ header {
 
 
 #main-image {
-	border-top: 1px solid #FFFFFF;
+	/*border-top: 1px solid #FFFFFF;*/
 	clear: both;
-	max-width: 960px;
+	/*max-width: 960px;*/
 	padding-bottom: 20px;
 }
 
@@ -29,10 +29,6 @@ header {
 	font-family: 'Serif';
 }
 
-
-.container #mainbody {
-	background-color: transparent;
-}
 
 .clear {
 	clear: both;
@@ -48,7 +44,10 @@ header {
 
 
 #branding {
-	padding: 50px 70px;
+	padding: 50px 50px;
+}
+#mainbody{
+	padding: 0px 50px 50px 50px;
 }
 
 
@@ -73,7 +72,7 @@ header {
 }
 
 #sitetitle a:hover{
-	color: #990000;
+	color: #3e3e3e;
 }
 
 
@@ -151,6 +150,9 @@ header {
 .post-title h1 a:hover {
 	text-decoration: underline;
 }
+.icon {
+	color: #777 !important;
+}
 
 .post-content {
 	color: #333;
@@ -169,23 +171,9 @@ header {
 	font-size: 1.5em;
 }
 
-.footercontainer {
-	background-color: transparent;
-	padding-left: 150px;
-	padding-right: 25px;
-}
-
-.container, .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.container, .container-fluid {
-    margin-right: auto;
-    margin-left: auto;
-}
-
 .myfooter {
 	padding-top: 20px;
+	text-align: center;
 }
 
 .wmd-panel{

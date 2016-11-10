@@ -7,13 +7,15 @@
 
 <div class="col-md-3">
 {% include "sidebar.html" %}
-
-
 </div>
         
 <div class="col-md-9">
 {% if tag %}
     <h2>Posts tagged with "{{ tag.name }}"</h2>
+{% endif %}
+
+{% if not object_list %}
+<h3>There is no post so far. Come back later.</h3>
 {% endif %}
 
 {% for obj in object_list %}

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Local apps
     'comments',
     'posts',
+    'user_profile',
 ]
 
 
@@ -148,3 +149,7 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+LOGIN_URL = '/accounts/login/'
+LOGOUT_URL = '/accounts/logout'

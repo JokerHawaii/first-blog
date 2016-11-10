@@ -4,7 +4,7 @@
 <head>
 
 
-<title>{% block head_title %}{% endblock head_title %}</title>
+<title>{% block head_title %}Jia's Blog{% endblock head_title %}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -24,36 +24,42 @@
 
 <body>
 <header id="branding">
-<div class="container headercontainer">
+<div class="container-fluid">
 	<div id="sitetitle">
 		<hgroup>
-		<h1 id="sitetitle"><a href="http://joannaxu.pythonanywhere.com/posts/" title="joker's blog" rel="home">Joker's Techblog</a></h1>
+		<h1 id="sitetitle"><a href="http://joannaxu.pythonanywhere.com/posts/" title="Jia's blog" rel="home">Jia's Website</a></h1>
 		</hgroup>
 	</div>
 </div>
-<div class="container headercontainer">
+<div class="container-fluid">
+<div class="navbar navbar-default">
 	<ul class="nav navbar-nav">
 		<li><a href="http://joannaxu.pythonanywhere.com/posts/">Home</a></li>
 		<li><a href="http://joannaxu.pythonanywhere.com/posts/archives/">Archives</a></li>
 		<li><a href="http://joannaxu.pythonanywhere.com/posts/about/">About</a></li>
 	</ul>
+    <ul class="nav navbar-nav navbar-right">
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'posts:create' %}">Create</a></li>
+    {% endif %}
+    </ul>
 </div>
+</div>
+
 <div id="main-image"></div>
+
 </header>
 
-<div id="mainbody" class="container">
+<div id="mainbody" class="container-fluid">
 	<div class="row">
-		
 			{% block content %}{% endblock %}
-
-
 	</div>
 </div>
 
 <footer class="myfooter">
 	<div class="container footercontainer">
 		<div class="col-md-12">
-			<p class="copyright">Copyright @ JOKER'S TECHBLOG 2016.</p>
+			<p class="copyright">Copyright @ JIA'S WEBSITE 2016.</p>
 		</div>
 	</div>
 </footer>
